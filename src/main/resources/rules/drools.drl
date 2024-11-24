@@ -1,0 +1,109 @@
+package rules;
+
+import ru.emiren.drools.model.Computer
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit
+
+import java.util.List
+import java.util.Arrays;
+
+
+// Assigning Tests
+rule "Type 1 tests"
+    when
+        $computer : Computer(type == "Type 1")
+    then
+        $computer.getTests().addAll(Arrays.asList("Test 1", "Test 2", "Test 3"));
+        System.out.println("Tests for Type 1");
+    end
+
+rule "Tests for DNS Server"
+    when
+        $computer : Computer(type == "Type 2", func == "DNS Server")
+    then
+        $computer.getTests().addAll(Arrays.asList("Test 4", "Test 5"));
+        System.out.println("Tests for DNS Server.");
+    end
+
+rule "Tests for DDNS Server"
+    when
+        $computer : Computer(type == "Type 2", func == "DDNS Server")
+    then
+        $computer.getTests().addAll(Arrays.asList("Test 2", "Test 3"));
+        System.out.println("Tests for DDNS Server.");
+    end
+
+
+rule "Tests for Gateway"
+    when
+        $computer : Computer(type == "Type 2", func == "Gateway")
+    then
+        $computer.getTests().addAll(Arrays.asList("Test 3", "Test 4"));
+        System.out.println("Tests for DDNS Server.");
+    end
+
+
+rule "Tests for Router"
+    when
+        $computer : Computer(type == "Type 2", func == "Router")
+    then
+        $computer.getTests().addAll(Arrays.asList("Test 1", "Test 3"));
+        System.out.println("Tests for DDNS Server.");
+    end
+
+// Test deadlines
+rule "Deadline for Test 1"
+    when
+        $computer : Computer(tests contains "Test 1")
+    then
+        LocalDate deadline = $computer.getProductionDate().plus(3, ChronoUnit.DAYS);
+        if ($computer.getTestDeadline() == null || deadline.isBefore($computer.getTestDeadline())){
+            $computer.setTestDeadline(deadline);
+        }
+        System.out.println("Assigned test deadline for TEST 1 ");
+    end
+
+rule "Deadline for Test 2"
+    when
+        $computer : Computer(tests contains "Test 2")
+    then
+        LocalDate deadline = $computer.getProductionDate().plus(7, ChronoUnit.DAYS);
+        if ($computer.getTestDeadline() == null || deadline.isBefore($computer.getTestDeadline())){
+            $computer.setTestDeadline(deadline);
+        }
+        System.out.println("Assigned test deadline for TEST 2 ");
+    end
+
+rule "Deadline for Test 3"
+    when
+        $computer : Computer(tests contains "Test 3")
+    then
+        LocalDate deadline = $computer.getProductionDate().plus(10, ChronoUnit.DAYS);
+        if ($computer.getTestDeadline() == null || deadline.isBefore($computer.getTestDeadline())){
+            $computer.setTestDeadline(deadline);
+        }
+        System.out.println("Assigned test deadline for TEST 3 ");
+    end
+
+rule "Deadline for Test 4"
+    when
+        $computer : Computer(tests contains "Test 4")
+    then
+        LocalDate deadline = $computer.getProductionDate().plus(12, ChronoUnit.DAYS);
+        if ($computer.getTestDeadline() == null || deadline.isBefore($computer.getTestDeadline())){
+            $computer.setTestDeadline(deadline);
+        }
+        System.out.println("Assigned test deadline for TEST 4 ");
+    end
+
+rule "Deadline for Test 5"
+    when
+        $computer : Computer(tests contains "Test 5")
+    then
+        LocalDate deadline = $computer.getProductionDate().plus(14, ChronoUnit.DAYS);
+        if ($computer.getTestDeadline() == null || deadline.isBefore($computer.getTestDeadline())){
+            $computer.setTestDeadline(deadline);
+        }
+        System.out.println("Assigned test deadline for TEST 5 ");
+    end
