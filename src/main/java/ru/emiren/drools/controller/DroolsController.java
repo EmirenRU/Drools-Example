@@ -1,6 +1,8 @@
 package ru.emiren.drools.controller;
 
+import org.kie.api.KieBase;
 import org.kie.api.KieServices;
+import org.kie.api.builder.model.KieSessionModel;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import ru.emiren.drools.model.Computer;
@@ -21,8 +23,12 @@ public class DroolsController {
     }
 
     public void evaluateComputer(Computer computer) {
-        computer.setProductionDate(LocalDate.now());
-        droolsService.evaluateComputer(computer);
+//        KieServices ks = KieServices.Factory.get();
+//        KieContainer kc = ks.getKieClasspathContainer();
+//        KieSessionModel kieSessionModel = .newKieSession("sesssion-rule").setD
+//        KieSession kieSession = kc.newKieSession();
+//        computer.setProductionDate(LocalDate.now());
+//        droolsService.evaluateComputer(computer);
         System.out.println("Computer evaluated: " + computer);
     }
 

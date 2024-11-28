@@ -13,7 +13,7 @@ public class KieConfiguration {
 
     private KieFileSystem getKieFileSystem() throws IOException {
         KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
-        kieFileSystem.write(ResourceFactory.newClassPathResource("rules/drools.drl"));
+        kieFileSystem.write(ResourceFactory.newClassPathResource("rules/point-rules.drl"));
         return kieFileSystem;
 
     }
@@ -39,8 +39,9 @@ public class KieConfiguration {
     }
 
     public KieSession getKieSession() throws IOException {
-        System.out.println("session created...");
-        return getKieContainer().newKieSession();
-
+        KieServices kieServices = KieServices.Factory.get();
+        KieContainer kieContainer = kieServices.getKieClasspathContainer();
+        KieSession kieSession = kieContainer.newKieSession("point-rulesKS");
+        return kieSession;
     }
 }
