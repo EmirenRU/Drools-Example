@@ -11,7 +11,6 @@ import java.util.List;
 @Getter
 @Setter
 @Data
-@ToString
 public class Computer {
     private String type;
     private String func;
@@ -23,5 +22,14 @@ public class Computer {
         this.type = type;
         this.func = function;
         this.productionDate = productionDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Computer with type: " + type
+                + ", func: " + func
+                + ", productionDate: " + productionDate
+                + ", testDeadline: " + testDeadline
+                + ", tests: " + tests;
     }
 }

@@ -1,5 +1,6 @@
 package ru.emiren.drools.config;
 
+import org.kie.api.KieBase;
 import org.kie.api.KieServices;
 import org.kie.api.builder.*;
 import org.kie.api.runtime.KieContainer;
@@ -41,7 +42,8 @@ public class KieConfiguration {
     public KieSession getKieSession() throws IOException {
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kieContainer = kieServices.getKieClasspathContainer();
-        KieSession kieSession = kieContainer.newKieSession("point-rulesKS");
+        KieBase kieBase = kieContainer.getKieBase();
+        KieSession kieSession = kieContainer.newKieSession();
         return kieSession;
     }
 }

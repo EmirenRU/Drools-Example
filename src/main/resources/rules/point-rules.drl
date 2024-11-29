@@ -57,7 +57,7 @@ rule "Deadline for Test 1"
     when
         $computer : Computer(tests contains "Test 1")
     then
-        LocalDate deadline = $computer.getProductionDate().plus(3, ChronoUnit.DAYS);
+        LocalDate deadline = $computer.getProductionDate().plusDays(3);
         if ($computer.getTestDeadline() == null || deadline.isBefore($computer.getTestDeadline())){
             $computer.setTestDeadline(deadline);
         }
@@ -68,7 +68,7 @@ rule "Deadline for Test 2"
     when
         $computer : Computer(tests contains "Test 2")
     then
-        LocalDate deadline = $computer.getProductionDate().plus(7, ChronoUnit.DAYS);
+        LocalDate deadline = $computer.getProductionDate().plusDays(7);
         if ($computer.getTestDeadline() == null || deadline.isBefore($computer.getTestDeadline())){
             $computer.setTestDeadline(deadline);
         }
@@ -79,7 +79,7 @@ rule "Deadline for Test 3"
     when
         $computer : Computer(tests contains "Test 3")
     then
-        LocalDate deadline = $computer.getProductionDate().plus(10, ChronoUnit.DAYS);
+        LocalDate deadline = $computer.getProductionDate().plusDays(10);
         if ($computer.getTestDeadline() == null || deadline.isBefore($computer.getTestDeadline())){
             $computer.setTestDeadline(deadline);
         }
@@ -90,7 +90,7 @@ rule "Deadline for Test 4"
     when
         $computer : Computer(tests contains "Test 4")
     then
-        LocalDate deadline = $computer.getProductionDate().plus(12, ChronoUnit.DAYS);
+        LocalDate deadline = $computer.getProductionDate().plusDays(12);
         if ($computer.getTestDeadline() == null || deadline.isBefore($computer.getTestDeadline())){
             $computer.setTestDeadline(deadline);
         }
@@ -101,7 +101,7 @@ rule "Deadline for Test 5"
     when
         $computer : Computer(tests contains "Test 5")
     then
-        LocalDate deadline = $computer.getProductionDate().plus(14, ChronoUnit.DAYS);
+        LocalDate deadline = $computer.getProductionDate().plusDays(14);
         if ($computer.getTestDeadline() == null || deadline.isBefore($computer.getTestDeadline())){
             $computer.setTestDeadline(deadline);
         }

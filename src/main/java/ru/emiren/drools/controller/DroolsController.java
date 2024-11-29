@@ -25,10 +25,10 @@ public class DroolsController {
     public void evaluateComputer(Computer computer) {
 //        KieServices ks = KieServices.Factory.get();
 //        KieContainer kc = ks.getKieClasspathContainer();
-//        KieSessionModel kieSessionModel = .newKieSession("sesssion-rule").setD
-//        KieSession kieSession = kc.newKieSession();
-//        computer.setProductionDate(LocalDate.now());
-//        droolsService.evaluateComputer(computer);
+//        KieBase kieBase = kc.getKieBase();
+//        KieSession kieSession = kieBase.newKieSession();
+        computer.setProductionDate(LocalDate.now());
+        droolsService.evaluateComputer(computer);
         System.out.println("Computer evaluated: " + computer);
     }
 

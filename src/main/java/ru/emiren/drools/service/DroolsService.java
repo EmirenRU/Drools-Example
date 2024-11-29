@@ -24,8 +24,7 @@ public class DroolsService {
     }
 
     public DroolsService(KieSession kieSession) {
-
-        KieServices kieServices = KieServices.Factory.get();
+        this.kieSession = kieSession;
     }
 
     public void evaluateComputer(Computer computer) {
