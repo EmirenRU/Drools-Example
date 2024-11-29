@@ -31,11 +31,12 @@ public class DroolsService {
         try {
             kieSession.insert(computer);
             kieSession.fireAllRules();
-            kieSession.dispose();
         } catch (Exception e){
-            System.out.println(e.getMessage());
-        } finally {
-
+            System.out.println("Service Error: " + e.getMessage());
         }
+    }
+
+    public void destroySession() {
+        kieSession.dispose();
     }
 }
