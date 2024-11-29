@@ -19,6 +19,15 @@ public class App {
             controller.evaluateComputer(computer1);
             Computer computer2 = new Computer("Type 2", "DNS Server", LocalDate.now().plusDays(3));
             controller.evaluateComputer(computer2);
+            Computer computer3 = new Computer("Type 2", "DDNS Server", LocalDate.now().plusDays(3));
+            controller.evaluateComputer(computer3);
+            Computer computer4 = new Computer("Type 2", "Gateway", LocalDate.now().plusDays(3));
+            controller.evaluateComputer(computer4);
+            Computer computer5 = new Computer("Type 2", "Router", LocalDate.now().plusDays(3));
+            controller.evaluateComputer(computer5);
+            Computer computer6 = new Computer("Type 3", "Router", LocalDate.now().plusDays(3));
+            controller.evaluateComputer(computer6);
+
 
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
