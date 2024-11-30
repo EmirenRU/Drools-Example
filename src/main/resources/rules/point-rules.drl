@@ -60,6 +60,7 @@ rule "Tests for Router"
 
 // Test deadlines
 rule "Deadline for Test 1"
+    salience 5
     when
         $computer : Computer(tests contains "Test 1")
     then
@@ -73,6 +74,7 @@ rule "Deadline for Test 1"
     end
 
 rule "Deadline for Test 2"
+    salience 4
     when
         $computer : Computer(tests contains "Test 2")
     then
@@ -86,6 +88,7 @@ rule "Deadline for Test 2"
     end
 
 rule "Deadline for Test 3"
+    salience 3
     when
         $computer : Computer(tests contains "Test 3")
     then
@@ -99,6 +102,7 @@ rule "Deadline for Test 3"
     end
 
 rule "Deadline for Test 4"
+    salience 2
     when
         $computer : Computer(tests contains "Test 4")
     then
@@ -112,6 +116,7 @@ rule "Deadline for Test 4"
     end
 
 rule "Deadline for Test 5"
+    salience 1
     when
         $computer : Computer(tests contains "Test 5")
     then
